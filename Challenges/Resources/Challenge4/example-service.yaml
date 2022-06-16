@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service ## Kubernetes Service is an abstract way to expose an application running on a set of Pods as a network service.
+metadata:
+  name: ratings-web-service # name of a deployment
+spec:
+  type: LoadBalancer # type of a service. Can be ClusterIP or LoadBalancer
+  ports:
+  - port: 80 # port to expose
+    targetPort: 5000 # port in container
+  selector:
+    app: ratings-web # which pods to target
